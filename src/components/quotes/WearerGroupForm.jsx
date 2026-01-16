@@ -31,15 +31,15 @@ export default function WearerGroupForm({
     <Card className="border border-[#E6E6E6] overflow-hidden">
       {/* Group Header */}
       <div 
-        className="bg-[#00508C]/5 px-5 py-4 flex items-center justify-between cursor-pointer"
+        className="bg-[#C41E3A]/5 px-5 py-4 flex items-center justify-between cursor-pointer"
         onClick={() => setIsExpanded(!isExpanded)}
       >
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-[#00508C] rounded-lg flex items-center justify-center">
+          <div className="w-10 h-10 bg-[#C41E3A] rounded-lg flex items-center justify-center">
             <Users className="w-5 h-5 text-white" />
           </div>
           <div>
-            <h4 className="font-bold text-[#00508C]">
+            <h4 className="font-bold text-[#C41E3A]">
               {group.role_name || `Group ${groupIndex + 1}`}
             </h4>
             <div className="text-sm text-[#2F2F2F]/70">
@@ -51,7 +51,7 @@ export default function WearerGroupForm({
           {groupTotals && (
             <div className="text-right mr-4">
               <div className="text-xs text-[#2F2F2F]/60">Group Weekly</div>
-              <div className="font-bold text-[#C4D600]">£{groupTotals.groupWeekly.toFixed(2)}</div>
+              <div className="font-bold text-[#C41E3A]">£{groupTotals.groupWeekly.toFixed(2)}</div>
             </div>
           )}
           <Button
@@ -62,7 +62,7 @@ export default function WearerGroupForm({
           >
             <Trash2 className="w-4 h-4" />
           </Button>
-          {isExpanded ? <ChevronUp className="w-5 h-5 text-[#00508C]" /> : <ChevronDown className="w-5 h-5 text-[#00508C]" />}
+          {isExpanded ? <ChevronUp className="w-5 h-5 text-[#C41E3A]" /> : <ChevronDown className="w-5 h-5 text-[#C41E3A]" />}
         </div>
       </div>
 
@@ -76,7 +76,7 @@ export default function WearerGroupForm({
                 value={group.role_name || ''}
                 onChange={(e) => onGroupChange('role_name', e.target.value)}
                 placeholder="e.g. Engineer, Technician"
-                className="mt-1.5 border-[#E6E6E6] focus:border-[#00508C] focus:ring-[#00508C]"
+                className="mt-1.5 border-[#E6E6E6] focus:border-[#C41E3A] focus:ring-[#C41E3A]"
               />
             </div>
             <div>
@@ -87,7 +87,7 @@ export default function WearerGroupForm({
                 value={group.wearers || ''}
                 onChange={(e) => onGroupChange('wearers', parseInt(e.target.value) || 0)}
                 placeholder="0"
-                className="mt-1.5 border-[#E6E6E6] focus:border-[#00508C] focus:ring-[#00508C]"
+                className="mt-1.5 border-[#E6E6E6] focus:border-[#C41E3A] focus:ring-[#C41E3A]"
               />
             </div>
             <div>
@@ -129,11 +129,11 @@ export default function WearerGroupForm({
           {/* Line Items */}
           <div className="space-y-3">
             <div className="flex items-center justify-between">
-              <Label className="text-[#00508C] font-bold">Line Items</Label>
+              <Label className="text-[#C41E3A] font-bold">Line Items</Label>
               <Button
                 variant="outline"
                 size="sm"
-                className="border-[#00508C] text-[#00508C] hover:bg-[#00508C]/5"
+                className="border-[#C41E3A] text-[#C41E3A] hover:bg-[#C41E3A]/5"
                 onClick={onAddLine}
               >
                 <Plus className="w-4 h-4 mr-1.5" />
@@ -170,7 +170,7 @@ export default function WearerGroupForm({
               </div>
               <div>
                 <div className="text-[#2F2F2F]/60">Group Weekly</div>
-                <div className="font-bold text-[#C4D600]">£{groupTotals.groupWeekly.toFixed(2)}</div>
+                <div className="font-bold text-[#C41E3A]">£{groupTotals.groupWeekly.toFixed(2)}</div>
               </div>
               <div>
                 <div className="text-[#2F2F2F]/60">Rental Recovery</div>

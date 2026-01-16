@@ -8,7 +8,7 @@ import { format } from 'date-fns';
 const statusColors = {
   draft: 'bg-gray-100 text-gray-700 border-gray-200',
   sent: 'bg-blue-50 text-blue-700 border-blue-200',
-  accepted: 'bg-[#C4D600]/20 text-[#5a6b00] border-[#C4D600]',
+  accepted: 'bg-green-50 text-green-700 border-green-200',
   expired: 'bg-red-50 text-red-700 border-red-200'
 };
 
@@ -24,7 +24,7 @@ export default function QuoteCard({ quote, onOpen, onDuplicate, onDelete }) {
       <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-3 mb-2">
-            <span className="font-bold text-[#00508C] text-lg">{quote.quote_ref}</span>
+            <span className="font-bold text-[#C41E3A] text-lg">{quote.quote_ref}</span>
             <Badge variant="outline" className={`${statusColors[quote.status]} border`}>
               {quote.status?.charAt(0).toUpperCase() + quote.status?.slice(1)}
             </Badge>
@@ -33,13 +33,13 @@ export default function QuoteCard({ quote, onOpen, onDuplicate, onDelete }) {
           <div className="space-y-1.5 text-sm text-[#2F2F2F]">
             {quote.customer_name && (
               <div className="flex items-center gap-2">
-                <Building2 className="w-4 h-4 text-[#00508C]/60" />
+                <Building2 className="w-4 h-4 text-[#C41E3A]/60" />
                 <span className="font-medium">{quote.customer_name}</span>
               </div>
             )}
             {quote.site_name && (
               <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-[#00508C]/60" />
+                <MapPin className="w-4 h-4 text-[#C41E3A]/60" />
                 <span>{quote.site_name}</span>
               </div>
             )}
@@ -62,7 +62,7 @@ export default function QuoteCard({ quote, onOpen, onDuplicate, onDelete }) {
           <Button
             variant="default"
             size="sm"
-            className="bg-[#00508C] hover:bg-[#003d6e] text-white"
+            className="bg-[#C41E3A] hover:bg-[#a01730] text-white"
             onClick={() => onOpen(quote)}
           >
             <Eye className="w-4 h-4 mr-1.5" />
@@ -72,10 +72,10 @@ export default function QuoteCard({ quote, onOpen, onDuplicate, onDelete }) {
             <Button
               variant="outline"
               size="icon"
-              className="h-8 w-8 border-[#E6E6E6] hover:border-[#00508C] hover:bg-[#00508C]/5"
+              className="h-8 w-8 border-[#E6E6E6] hover:border-[#C41E3A] hover:bg-[#C41E3A]/5"
               onClick={() => onDuplicate(quote)}
             >
-              <Copy className="w-4 h-4 text-[#00508C]" />
+              <Copy className="w-4 h-4 text-[#C41E3A]" />
             </Button>
             <Button
               variant="outline"

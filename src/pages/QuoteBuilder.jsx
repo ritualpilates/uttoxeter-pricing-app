@@ -351,7 +351,7 @@ export default function QuoteBuilder() {
   if (quoteLoading || groupsLoading) {
     return (
       <div className="flex items-center justify-center py-20">
-        <Loader2 className="w-8 h-8 animate-spin text-[#00508C]" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#C41E3A]" />
       </div>
     );
   }
@@ -364,15 +364,15 @@ export default function QuoteBuilder() {
           <Button
             variant="ghost"
             size="icon"
-            className="text-[#00508C] hover:bg-[#00508C]/5"
+            className="text-[#C41E3A] hover:bg-[#C41E3A]/5"
             onClick={() => navigate(createPageUrl('Quotes'))}
           >
             <ArrowLeft className="w-5 h-5" />
           </Button>
           <div>
             <div className="flex items-center gap-3">
-              <h1 className="text-2xl font-bold text-[#00508C]">{quote.quote_ref}</h1>
-              <Badge variant="outline" className="border-[#00508C] text-[#00508C]">
+              <h1 className="text-2xl font-bold text-[#C41E3A]">{quote.quote_ref}</h1>
+              <Badge variant="outline" className="border-[#C41E3A] text-[#C41E3A]">
                 {STATUS_OPTIONS.find(s => s.value === quote.status)?.label}
               </Badge>
             </div>
@@ -380,7 +380,7 @@ export default function QuoteBuilder() {
           </div>
         </div>
         <Button
-          className={`${saveSuccess ? 'bg-green-600 hover:bg-green-700' : 'bg-[#C4D600] hover:bg-[#b0c000]'} ${saveSuccess ? 'text-white' : 'text-[#00508C] font-semibold'} transition-colors`}
+          className={`${saveSuccess ? 'bg-green-600 hover:bg-green-700' : 'bg-[#C41E3A] hover:bg-[#a01730]'} text-white font-semibold transition-colors`}
           onClick={handleSave}
           disabled={isSaving}
         >
@@ -401,7 +401,7 @@ export default function QuoteBuilder() {
         <div className="lg:col-span-2 space-y-6">
           {/* Quote Details Card */}
           <Card className="border border-[#E6E6E6] overflow-hidden">
-            <div className="bg-[#00508C] px-5 py-4">
+            <div className="bg-[#C41E3A] px-5 py-4">
               <h3 className="text-white font-bold text-lg">Quote Details</h3>
             </div>
             <div className="p-5">
@@ -412,7 +412,7 @@ export default function QuoteBuilder() {
                     value={quote.customer_name}
                     onChange={(e) => setQuote({ ...quote, customer_name: e.target.value })}
                     placeholder="Enter customer name"
-                    className="mt-1.5 border-[#E6E6E6] focus:border-[#00508C] focus:ring-[#00508C]"
+                    className="mt-1.5 border-[#E6E6E6] focus:border-[#C41E3A] focus:ring-[#C41E3A]"
                   />
                 </div>
                 <div>
@@ -421,7 +421,7 @@ export default function QuoteBuilder() {
                     value={quote.site_name}
                     onChange={(e) => setQuote({ ...quote, site_name: e.target.value })}
                     placeholder="Enter site name"
-                    className="mt-1.5 border-[#E6E6E6] focus:border-[#00508C] focus:ring-[#00508C]"
+                    className="mt-1.5 border-[#E6E6E6] focus:border-[#C41E3A] focus:ring-[#C41E3A]"
                   />
                 </div>
                 <div>
@@ -479,10 +479,10 @@ export default function QuoteBuilder() {
           {/* Wearer Groups */}
           <div>
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-bold text-[#00508C]">Wearer Groups</h2>
+              <h2 className="text-xl font-bold text-[#C41E3A]">Wearer Groups</h2>
               <Button
                 variant="outline"
-                className="border-[#00508C] text-[#00508C] hover:bg-[#00508C]/5"
+                className="border-[#C41E3A] text-[#C41E3A] hover:bg-[#C41E3A]/5"
                 onClick={addGroup}
               >
                 <Plus className="w-4 h-4 mr-2" />
@@ -495,7 +495,7 @@ export default function QuoteBuilder() {
                 <p className="text-[#2F2F2F]/60 mb-4">No wearer groups added yet</p>
                 <Button
                   variant="outline"
-                  className="border-[#00508C] text-[#00508C] hover:bg-[#00508C]/5"
+                  className="border-[#C41E3A] text-[#C41E3A] hover:bg-[#C41E3A]/5"
                   onClick={addGroup}
                 >
                   <Plus className="w-4 h-4 mr-2" />

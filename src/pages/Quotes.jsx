@@ -131,7 +131,7 @@ export default function Quotes() {
     <div>
       {/* Page Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-[#00508C] mb-2">Quotes</h1>
+        <h1 className="text-3xl font-bold text-[#C41E3A] mb-2">Quotes</h1>
         <p className="text-[#2F2F2F]/70">Manage your customer quotes and pricing</p>
       </div>
 
@@ -143,11 +143,11 @@ export default function Quotes() {
             placeholder="Search by customer, site, or quote ref..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="pl-10 border-[#E6E6E6] focus:border-[#00508C] focus:ring-[#00508C]"
+            className="pl-10 border-[#E6E6E6] focus:border-[#C41E3A] focus:ring-[#C41E3A]"
           />
         </div>
         <Button
-          className="bg-[#C4D600] hover:bg-[#b0c000] text-[#00508C] font-semibold"
+          className="bg-[#C41E3A] hover:bg-[#a01730] text-white font-semibold"
           onClick={() => createQuoteMutation.mutate()}
           disabled={createQuoteMutation.isPending}
         >
@@ -163,11 +163,11 @@ export default function Quotes() {
       {/* Quotes List */}
       {isLoading ? (
         <div className="flex items-center justify-center py-20">
-          <Loader2 className="w-8 h-8 animate-spin text-[#00508C]" />
+          <Loader2 className="w-8 h-8 animate-spin text-[#C41E3A]" />
         </div>
       ) : filteredQuotes.length === 0 ? (
         <div className="text-center py-20 bg-gray-50 rounded-xl border border-[#E6E6E6]">
-          <FileText className="w-12 h-12 text-[#00508C]/30 mx-auto mb-4" />
+          <FileText className="w-12 h-12 text-[#C41E3A]/30 mx-auto mb-4" />
           <h3 className="text-lg font-semibold text-[#2F2F2F] mb-2">
             {searchTerm ? 'No quotes found' : 'No quotes yet'}
           </h3>
@@ -178,7 +178,7 @@ export default function Quotes() {
           </p>
           {!searchTerm && (
             <Button
-              className="bg-[#C4D600] hover:bg-[#b0c000] text-[#00508C] font-semibold"
+              className="bg-[#C41E3A] hover:bg-[#a01730] text-white font-semibold"
               onClick={() => createQuoteMutation.mutate()}
             >
               <Plus className="w-4 h-4 mr-2" />
@@ -204,7 +204,7 @@ export default function Quotes() {
       <AlertDialog open={!!deleteQuote} onOpenChange={() => setDeleteQuote(null)}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle className="text-[#00508C]">Delete Quote</AlertDialogTitle>
+            <AlertDialogTitle className="text-[#C41E3A]">Delete Quote</AlertDialogTitle>
             <AlertDialogDescription>
               Are you sure you want to delete quote <strong>{deleteQuote?.quote_ref}</strong>? 
               This will also delete all groups and line items. This action cannot be undone.
