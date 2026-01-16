@@ -318,9 +318,15 @@ export default function QuoteBuilder() {
   // Add line to group
   const addLine = (groupIndex) => {
     const newGroups = [...groups];
+    const group = newGroups[groupIndex];
+    
+    // Calculate remaining quantity needed
+    const currentTotal = (group.lines || []).reduce((sum, line) => sum + (line.quantity_in_set || 0), 0);
+    const remainingQty = Math.max(1, (group.set_size || 3) - currentTotal);
+    
     newGroups[groupIndex].lines = [
       ...(newGroups[groupIndex].lines || []),
-      { category: 'coveralls', description: '', cost_price: 0, quantity_in_set: 1 }
+      { category: 'coveralls', description: '', cost_price: 0, quantity_in_set: remainingQty }
     ];
     setGroups(newGroups);
   };
