@@ -121,7 +121,7 @@ export default function AdminSettings() {
     return (
       <div className="flex flex-col items-center justify-center py-20">
         <AlertTriangle className="w-16 h-16 text-amber-500 mb-4" />
-        <h2 className="text-xl font-bold text-[#004070] mb-2">Access Denied</h2>
+        <h2 className="text-xl font-bold text-[#00508C] mb-2">Access Denied</h2>
         <p className="text-[#2F2F2F]/70">You need admin privileges to access this page.</p>
       </div>
     );
@@ -230,7 +230,7 @@ export default function AdminSettings() {
   if (garmentsLoading || settingsLoading) {
     return (
       <div className="flex items-center justify-center py-20">
-        <Loader2 className="w-8 h-8 animate-spin text-[#004070]" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#00508C]" />
       </div>
     );
   }
@@ -239,22 +239,22 @@ export default function AdminSettings() {
     <div>
       {/* Page Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-[#004070] mb-2">Admin Settings</h1>
+        <h1 className="text-3xl font-bold text-[#00508C] mb-2">Admin Settings</h1>
         <p className="text-[#2F2F2F]/70">Manage garments and pricing configuration</p>
       </div>
 
       <Tabs value={activeTab} onValueChange={setActiveTab}>
-        <TabsList className="bg-[#004070]/5 mb-6">
+        <TabsList className="bg-[#00508C]/5 mb-6">
           <TabsTrigger 
             value="garments" 
-            className="data-[state=active]:bg-[#004070] data-[state=active]:text-white"
+            className="data-[state=active]:bg-[#00508C] data-[state=active]:text-white"
           >
             <Package className="w-4 h-4 mr-2" />
             Garments
           </TabsTrigger>
           <TabsTrigger 
             value="settings"
-            className="data-[state=active]:bg-[#004070] data-[state=active]:text-white"
+            className="data-[state=active]:bg-[#00508C] data-[state=active]:text-white"
           >
             <Settings className="w-4 h-4 mr-2" />
             Pricing Settings
@@ -265,7 +265,7 @@ export default function AdminSettings() {
         <TabsContent value="garments" className="space-y-6">
           {/* Add New Garment */}
           <Card className="border border-[#E6E6E6] overflow-hidden">
-            <div className="bg-[#004070] px-5 py-4">
+            <div className="bg-[#00508C] px-5 py-4">
               <h3 className="text-white font-bold text-lg">Add New Garment</h3>
             </div>
             <div className="p-5">
@@ -307,7 +307,7 @@ export default function AdminSettings() {
                 </div>
                 <div className="flex items-end">
                   <Button
-                    className="bg-[#004070] hover:bg-[#003060] text-white w-full"
+                    className="bg-[#C4D600] hover:bg-[#b0c000] text-[#00508C] font-semibold w-full"
                     onClick={handleAddGarment}
                     disabled={!newGarment.name || isSaving}
                   >
@@ -353,7 +353,7 @@ export default function AdminSettings() {
 
           {/* Garments List */}
           <Card className="border border-[#E6E6E6] overflow-hidden">
-            <div className="bg-[#004070] px-5 py-4">
+            <div className="bg-[#00508C] px-5 py-4">
               <h3 className="text-white font-bold text-lg">Garment List</h3>
             </div>
             <div className="overflow-x-auto">
@@ -469,7 +469,7 @@ export default function AdminSettings() {
         {/* Settings Tab */}
         <TabsContent value="settings" className="space-y-6">
           <Card className="border border-[#E6E6E6] overflow-hidden">
-            <div className="bg-[#004070] px-5 py-4">
+            <div className="bg-[#00508C] px-5 py-4">
               <h3 className="text-white font-bold text-lg">Pricing Configuration</h3>
             </div>
             <div className="p-5 space-y-6">
@@ -517,7 +517,7 @@ export default function AdminSettings() {
               {/* Save Button */}
               <div className="pt-4">
                 <Button
-                  className={`${saveSuccess ? 'bg-[#A8D058] hover:bg-[#96c04a]' : 'bg-[#004070] hover:bg-[#003060]'} text-white`}
+                  className={`${saveSuccess ? 'bg-green-600 hover:bg-green-700' : 'bg-[#C4D600] hover:bg-[#b0c000]'} ${saveSuccess ? 'text-white' : 'text-[#00508C] font-semibold'}`}
                   onClick={handleSaveSettings}
                   disabled={isSaving}
                 >
@@ -540,7 +540,7 @@ export default function AdminSettings() {
       <AlertDialog open={!!deleteGarment} onOpenChange={() => setDeleteGarment(null)}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle className="text-[#004070]">Delete Garment</AlertDialogTitle>
+            <AlertDialogTitle className="text-[#00508C]">Delete Garment</AlertDialogTitle>
             <AlertDialogDescription>
               Are you sure you want to delete <strong>{deleteGarment?.name}</strong>? 
               This action cannot be undone.

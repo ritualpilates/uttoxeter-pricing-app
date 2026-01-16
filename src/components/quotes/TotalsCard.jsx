@@ -5,18 +5,18 @@ import { TrendingUp, Calendar, CalendarDays } from 'lucide-react';
 export default function TotalsCard({ weeklyTotal, monthlyTotal, annualTotal }) {
   return (
     <Card className="border border-[#E6E6E6] overflow-hidden">
-      <div className="bg-[#004070] px-5 py-4">
+      <div className="bg-[#00508C] px-5 py-4">
         <h3 className="text-white font-bold text-lg">Quote Totals</h3>
       </div>
       
       <div className="p-5 space-y-4">
         {/* Weekly Total - Highlighted */}
-        <div className="bg-[#A8D058]/10 border-2 border-[#A8D058] rounded-xl p-5">
-          <div className="flex items-center gap-2 text-[#4a6b1f] mb-1">
+        <div className="bg-[#C4D600]/15 border-2 border-[#C4D600] rounded-xl p-5">
+          <div className="flex items-center gap-2 text-[#5a6b00] mb-1">
             <TrendingUp className="w-5 h-5" />
             <span className="font-medium text-sm">Weekly Total</span>
           </div>
-          <div className="text-4xl font-bold text-[#4a6b1f]">
+          <div className="text-4xl font-bold text-[#5a6b00]">
             £{weeklyTotal.toFixed(2)}
           </div>
         </div>

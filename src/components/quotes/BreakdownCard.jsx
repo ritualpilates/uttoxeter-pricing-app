@@ -7,7 +7,7 @@ export default function BreakdownCard({ groups, groupTotals }) {
 
   return (
     <Card className="border border-[#E6E6E6] overflow-hidden">
-      <div className="bg-[#004070] px-5 py-4">
+      <div className="bg-[#00508C] px-5 py-4">
         <h3 className="text-white font-bold text-lg">Breakdown by Group</h3>
       </div>
       
@@ -20,12 +20,12 @@ export default function BreakdownCard({ groups, groupTotals }) {
             <div key={idx} className="p-4">
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
-                  <Users className="w-4 h-4 text-[#004070]" />
-                  <span className="font-semibold text-[#004070]">
+                  <Users className="w-4 h-4 text-[#00508C]" />
+                  <span className="font-semibold text-[#00508C]">
                     {group.role_name || `Group ${idx + 1}`}
                   </span>
                 </div>
-                <span className="font-bold text-[#A8D058]">
+                <span className="font-bold text-[#C4D600]">
                   £{totals.groupWeekly.toFixed(2)}/wk
                 </span>
               </div>
@@ -56,7 +56,7 @@ export default function BreakdownCard({ groups, groupTotals }) {
                     {group.lines.map((line, lineIdx) => (
                       <div key={lineIdx} className="flex items-center justify-between text-xs">
                         <div className="flex items-center gap-2">
-                          <Package className="w-3 h-3 text-[#004070]/60" />
+                          <Package className="w-3 h-3 text-[#00508C]/60" />
                           <span className="text-[#2F2F2F]">
                             {line.description || 'Item'} × {line.quantity_in_set || 0}
                           </span>

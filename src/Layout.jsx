@@ -37,14 +37,32 @@ export default function Layout({ children }) {
       `}</style>
       
       {/* Header */}
-      <header className="bg-[#004070] text-white shadow-lg">
+      <header className="bg-[#00508C] text-white shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-[#A8D058] rounded-lg flex items-center justify-center font-bold text-[#004070] text-lg">
-                JW
+          <div className="flex items-center justify-between h-20">
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3">
+                <svg className="w-12 h-12" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="50" cy="50" r="48" fill="white"/>
+                  <circle cx="50" cy="50" r="35" fill="#00508C"/>
+                  <circle cx="50" cy="50" r="28" fill="white"/>
+                  <path d="M35 50 L45 60 L65 40" stroke="#00508C" strokeWidth="4" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                  <circle cx="30" cy="30" r="3" fill="#C4D600"/>
+                  <circle cx="70" cy="30" r="3" fill="#C4D600"/>
+                  <circle cx="30" cy="70" r="3" fill="#C4D600"/>
+                  <circle cx="70" cy="70" r="3" fill="#C4D600"/>
+                  <circle cx="50" cy="20" r="3" fill="#C4D600"/>
+                  <circle cx="20" cy="50" r="3" fill="#C4D600"/>
+                  <circle cx="80" cy="50" r="3" fill="#C4D600"/>
+                  <circle cx="50" cy="80" r="3" fill="#C4D600"/>
+                </svg>
+                <div>
+                  <div className="text-xl font-bold tracking-wide">JOHNSONS</div>
+                  <div className="text-xs tracking-wider -mt-1">Workwear</div>
+                </div>
               </div>
-              <span className="text-xl font-bold tracking-tight">Uttoxeter Pricing</span>
+              <div className="hidden md:block h-12 w-px bg-white/20 mx-2"></div>
+              <span className="hidden md:block text-lg font-semibold">Uttoxeter Pricing</span>
             </div>
 
             {/* Desktop Nav */}
@@ -58,7 +76,7 @@ export default function Layout({ children }) {
                     to={item.path}
                     className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 ${
                       isActive 
-                        ? 'bg-[#A8D058] text-[#004070] font-semibold' 
+                        ? 'bg-[#C4D600] text-[#00508C] font-semibold' 
                         : 'text-white/90 hover:bg-white/10'
                     }`}
                   >
@@ -106,7 +124,7 @@ export default function Layout({ children }) {
                     onClick={() => setMobileMenuOpen(false)}
                     className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
                       isActive 
-                        ? 'bg-[#A8D058] text-[#004070] font-semibold' 
+                        ? 'bg-[#C4D600] text-[#00508C] font-semibold' 
                         : 'text-white/90 hover:bg-white/10'
                     }`}
                   >
