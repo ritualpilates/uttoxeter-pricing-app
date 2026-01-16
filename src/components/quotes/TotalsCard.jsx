@@ -2,7 +2,7 @@ import React from 'react';
 import { Card } from '@/components/ui/card';
 import { TrendingUp, Calendar, CalendarDays } from 'lucide-react';
 
-export default function TotalsCard({ weeklyTotal, monthlyTotal, annualTotal }) {
+export default function TotalsCard({ weeklyTotal, monthlyTotal, annualTotal, contractTotal, contractWeeks }) {
   return (
     <Card className="border border-[#E6E6E6] overflow-hidden">
       <div className="bg-[#C41E3A] px-5 py-4">
@@ -44,6 +44,20 @@ export default function TotalsCard({ weeklyTotal, monthlyTotal, annualTotal }) {
           </div>
           <div className="text-xs text-[#2F2F2F]/50 mt-1">Weekly × 52</div>
         </div>
+
+        {/* Contract Total */}
+        {contractWeeks && contractWeeks !== 52 && (
+          <div className="bg-[#C41E3A]/5 border border-[#C41E3A]/20 rounded-xl p-4">
+            <div className="flex items-center gap-2 text-[#C41E3A] mb-1">
+              <CalendarDays className="w-4 h-4" />
+              <span className="font-medium text-sm">Total Contract Value</span>
+            </div>
+            <div className="text-2xl font-bold text-[#C41E3A]">
+              £{contractTotal.toFixed(2)}
+            </div>
+            <div className="text-xs text-[#C41E3A]/70 mt-1">Weekly × {contractWeeks} weeks</div>
+          </div>
+        )}
       </div>
     </Card>
   );
