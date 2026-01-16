@@ -178,11 +178,12 @@ export default function QuoteBuilder() {
     });
 
     const weeklyTotal = groupTotals.reduce((sum, g) => sum + g.groupWeekly, 0);
-    const monthlyTotal = weeklyTotal * 52 / 12;
-    const annualTotal = weeklyTotal * 52;
-    const contractTotal = weeklyTotal * (quote.contract_weeks || 52);
+    const contractWeeks = quote.contract_weeks || 52;
+    const monthlyTotal = weeklyTotal * contractWeeks / 12;
+    const annualTotal = weeklyTotal * Math.min(contractWeeks, 52);
+    const contractTotal = weeklyTotal * contractWeeks;
 
-    return { groupTotals, weeklyTotal, monthlyTotal, annualTotal, contractTotal };
+    return { groupTotals, weeklyTotal, monthlyTotal, annualTotal, contractTotal, contractWeeks };
   }, [groups, quote.service_type, quote.contract_weeks, changesMapping, rentalMultiplier, garments]);
 
   // Save quote
@@ -534,7 +535,7 @@ export default function QuoteBuilder() {
               monthlyTotal={calculateTotals.monthlyTotal}
               annualTotal={calculateTotals.annualTotal}
               contractTotal={calculateTotals.contractTotal}
-              contractWeeks={quote.contract_weeks}
+              contractWeeks={calculateTotals.contractWeeks}
             />
             
             <div className="mt-6">

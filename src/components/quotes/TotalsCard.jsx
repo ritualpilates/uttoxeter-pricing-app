@@ -30,7 +30,7 @@ export default function TotalsCard({ weeklyTotal, monthlyTotal, annualTotal, con
           <div className="text-2xl font-bold text-[#2F2F2F]">
             £{monthlyTotal.toFixed(2)}
           </div>
-          <div className="text-xs text-[#2F2F2F]/50 mt-1">Weekly × 52 ÷ 12</div>
+          <div className="text-xs text-[#2F2F2F]/50 mt-1">Weekly × {contractWeeks} ÷ 12</div>
         </div>
 
         {/* Annual Total */}
@@ -42,7 +42,7 @@ export default function TotalsCard({ weeklyTotal, monthlyTotal, annualTotal, con
           <div className="text-2xl font-bold text-[#2F2F2F]">
             £{annualTotal.toFixed(2)}
           </div>
-          <div className="text-xs text-[#2F2F2F]/50 mt-1">Weekly × 52</div>
+          <div className="text-xs text-[#2F2F2F]/50 mt-1">Weekly × {Math.min(contractWeeks, 52)}</div>
         </div>
 
         {/* Contract Total */}
