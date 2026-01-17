@@ -1,13 +1,13 @@
-import Quotes from './pages/Quotes';
-import QuoteBuilder from './pages/QuoteBuilder';
 import AdminSettings from './pages/AdminSettings';
+import QuoteBuilder from './pages/QuoteBuilder';
+import Quotes from './pages/Quotes';
 import __Layout from './Layout.jsx';
 
 
 export const PAGES = {
-    "Quotes": Quotes,
-    "QuoteBuilder": QuoteBuilder,
     "AdminSettings": AdminSettings,
+    "QuoteBuilder": QuoteBuilder,
+    "Quotes": Quotes,
 }
 
 export const pagesConfig = {

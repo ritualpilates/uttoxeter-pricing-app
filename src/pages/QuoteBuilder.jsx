@@ -159,8 +159,8 @@ export default function QuoteBuilder() {
           rentalRecoveryWeekly = (line.cost_price || 0) * rentalMultiplier * (group.set_size || 3) * changesPerWeek / (quote.contract_weeks || 52);
         }
         
-        // Wash weekly: wash_price * changes_per_week * quantity_in_set
-        const washWeekly = washPrice * changesPerWeek * (line.quantity_in_set || 0);
+        // Wash weekly: wash_price * changes_per_week (number of washes)
+        const washWeekly = washPrice * changesPerWeek;
         
         rentalRecoveryTotal += rentalRecoveryWeekly;
         washCostTotal += washWeekly;
