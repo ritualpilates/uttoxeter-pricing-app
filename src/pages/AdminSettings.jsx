@@ -316,7 +316,7 @@ export default function AdminSettings() {
                   </Button>
                 </div>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
                 <div>
                   <Label className="text-[#1A1F2A] font-medium text-sm">Wash Price Full (£)</Label>
                   <Input
@@ -344,6 +344,35 @@ export default function AdminSettings() {
                     step="0.01"
                     value={newGarment.wash_price_wash_only}
                     onChange={(e) => setNewGarment({ ...newGarment, wash_price_wash_only: parseFloat(e.target.value) || 0 })}
+                    className="mt-1 border-[#E0E0E0]"
+                  />
+                </div>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                  <Label className="text-[#1A1F2A] font-medium text-sm">Supplier Name</Label>
+                  <Input
+                    value={newGarment.supplier_name}
+                    onChange={(e) => setNewGarment({ ...newGarment, supplier_name: e.target.value })}
+                    placeholder="e.g. Portwest"
+                    className="mt-1 border-[#E0E0E0]"
+                  />
+                </div>
+                <div>
+                  <Label className="text-[#1A1F2A] font-medium text-sm">SKU</Label>
+                  <Input
+                    value={newGarment.sku}
+                    onChange={(e) => setNewGarment({ ...newGarment, sku: e.target.value })}
+                    placeholder="Product SKU"
+                    className="mt-1 border-[#E0E0E0]"
+                  />
+                </div>
+                <div>
+                  <Label className="text-[#1A1F2A] font-medium text-sm">Product URL</Label>
+                  <Input
+                    value={newGarment.product_url}
+                    onChange={(e) => setNewGarment({ ...newGarment, product_url: e.target.value })}
+                    placeholder="https://..."
                     className="mt-1 border-[#E0E0E0]"
                   />
                 </div>
@@ -437,6 +466,33 @@ export default function AdminSettings() {
                           onChange={(e) => updateGarmentField(garment.id, 'wash_price_wash_only', parseFloat(e.target.value) || 0)}
                           onBlur={() => handleUpdateGarment(garment)}
                           className="border-[#E0E0E0] h-8 w-16"
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <Input
+                          value={garment.supplier_name || ''}
+                          onChange={(e) => updateGarmentField(garment.id, 'supplier_name', e.target.value)}
+                          onBlur={() => handleUpdateGarment(garment)}
+                          className="border-[#E0E0E0] h-8"
+                          placeholder="Supplier"
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <Input
+                          value={garment.sku || ''}
+                          onChange={(e) => updateGarmentField(garment.id, 'sku', e.target.value)}
+                          onBlur={() => handleUpdateGarment(garment)}
+                          className="border-[#E0E0E0] h-8"
+                          placeholder="SKU"
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <Input
+                          value={garment.product_url || ''}
+                          onChange={(e) => updateGarmentField(garment.id, 'product_url', e.target.value)}
+                          onBlur={() => handleUpdateGarment(garment)}
+                          className="border-[#E0E0E0] h-8"
+                          placeholder="URL"
                         />
                       </TableCell>
                       <TableCell>
