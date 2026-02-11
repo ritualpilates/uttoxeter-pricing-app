@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #203050;
+  --secondary: #405060;
+  --support: #304060;
+  --background: #F7F8FA;
+  --border: #E0E0E0;
+  --text-default: #1A1F2A;
+  --text-muted: #5B6472;
+}
+
+body {
+  font-family: Calibri, Arial, sans-serif;
+  font-size: 12pt;
+  background: var(--background);
+  color: var(--text-default);
+}
+
+* {
+  font-family: Calibri, Arial, sans-serif;
+}
