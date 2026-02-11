@@ -49,7 +49,7 @@ export default function Quotes() {
     },
     onSuccess: (newQuote) => {
       queryClient.invalidateQueries({ queryKey: ['quotes'] });
-      navigate(createPageUrl(`QuoteBuilder?id=${newQuote.id}`));
+      navigate(createPageUrl(`QuoteStart?id=${newQuote.id}`));
     }
   });
 
@@ -94,7 +94,7 @@ export default function Quotes() {
       queryClient.invalidateQueries({ queryKey: ['quotes'] });
       queryClient.invalidateQueries({ queryKey: ['quoteGroups'] });
       queryClient.invalidateQueries({ queryKey: ['quoteLines'] });
-      navigate(createPageUrl(`QuoteBuilder?id=${newQuote.id}`));
+      navigate(createPageUrl(`QuoteReview?id=${newQuote.id}`));
     }
   });
 
@@ -192,7 +192,7 @@ export default function Quotes() {
             <QuoteCard
               key={quote.id}
               quote={quote}
-              onOpen={(q) => navigate(createPageUrl(`QuoteBuilder?id=${q.id}`))}
+              onOpen={(q) => navigate(createPageUrl(`QuoteReview?id=${q.id}`))}
               onDuplicate={(q) => duplicateQuoteMutation.mutate(q)}
               onDelete={(q) => setDeleteQuote(q)}
             />
