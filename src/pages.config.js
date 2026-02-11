@@ -50,6 +50,11 @@
 import AdminSettings from './pages/AdminSettings';
 import QuoteBuilder from './pages/QuoteBuilder';
 import Quotes from './pages/Quotes';
+import QuoteStart from './pages/QuoteStart';
+import QuoteDepartments from './pages/QuoteDepartments';
+import QuoteGarments from './pages/QuoteGarments';
+import QuoteHygiene from './pages/QuoteHygiene';
+import QuoteReview from './pages/QuoteReview';
 import __Layout from './Layout.jsx';
 
 
@@ -57,6 +62,11 @@ export const PAGES = {
     "AdminSettings": AdminSettings,
     "QuoteBuilder": QuoteBuilder,
     "Quotes": Quotes,
+    "QuoteStart": QuoteStart,
+    "QuoteDepartments": QuoteDepartments,
+    "QuoteGarments": QuoteGarments,
+    "QuoteHygiene": QuoteHygiene,
+    "QuoteReview": QuoteReview,
 }
 
 export const pagesConfig = {
