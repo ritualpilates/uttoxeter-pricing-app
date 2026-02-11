@@ -31,29 +31,17 @@ export default function Layout({ children }) {
   ];
 
   return (
-    <div className="min-h-screen bg-white" style={{ fontFamily: 'Calibri, sans-serif' }}>
-      <style>{`
-        * { font-family: Calibri, sans-serif; }
-      `}</style>
-      
+    <div className="min-h-screen" style={{ background: 'var(--background)' }}>
       {/* Header */}
-      <header className="bg-white border-b-2 border-[#C41E3A] shadow-sm">
+      <header className="bg-white border-b border-[#E0E0E0] shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-4">
-              <div className="flex items-center gap-3">
-                <svg className="h-12" viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  {/* Arc swooshes */}
-                  <path d="M 50 60 Q 200 20, 350 60" stroke="#C41E3A" strokeWidth="8" fill="none" strokeLinecap="round"/>
-                  <path d="M 70 70 Q 200 35, 330 70" stroke="#C41E3A" strokeWidth="6" fill="none" strokeLinecap="round"/>
-                  
-                  {/* LeeBroomfield text */}
-                  <text x="40" y="140" fontFamily="Arial, sans-serif" fontSize="52" fontWeight="bold" fill="#C41E3A">LeeBroomfield</text>
-                  <text x="280" y="165" fontFamily="Arial, sans-serif" fontSize="32" fontWeight="normal" fill="#808080">.com</text>
-                </svg>
-              </div>
-              <div className="hidden md:block h-12 w-px bg-gray-300 mx-2"></div>
-              <span className="hidden md:block text-lg font-semibold text-[#C41E3A]">Pricing App</span>
+              <img 
+                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696a9314c17d9cb3d4e952c0/d8e17d07a_LeeBroomfieldcomLogo.png" 
+                alt="Lee Broomfield" 
+                className="h-8"
+              />
             </div>
 
             {/* Desktop Nav */}
@@ -67,8 +55,8 @@ export default function Layout({ children }) {
                     to={item.path}
                     className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 ${
                       isActive 
-                        ? 'bg-[#C41E3A] text-white font-semibold' 
-                        : 'text-gray-700 hover:bg-gray-100'
+                        ? 'bg-[#203050] text-white' 
+                        : 'text-[#5B6472] hover:bg-[#F7F8FA]'
                     }`}
                   >
                     <Icon className="w-4 h-4" />
@@ -77,12 +65,12 @@ export default function Layout({ children }) {
                 );
               })}
               {user && (
-                <div className="flex items-center gap-3 ml-4 pl-4 border-l border-gray-300">
-                  <span className="text-sm text-gray-600">{user.full_name || user.email}</span>
+                <div className="flex items-center gap-3 ml-4 pl-4 border-l border-[#E0E0E0]">
+                  <span className="text-sm text-[#5B6472]">{user.full_name || user.email}</span>
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="text-gray-600 hover:text-[#C41E3A] hover:bg-gray-100"
+                    className="text-[#5B6472] hover:text-[#203050] hover:bg-[#F7F8FA]"
                     onClick={() => base44.auth.logout()}
                   >
                     <LogOut className="w-4 h-4" />
@@ -93,7 +81,7 @@ export default function Layout({ children }) {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-2 rounded-lg hover:bg-gray-100 text-gray-700"
+              className="md:hidden p-2 rounded-lg hover:bg-[#F7F8FA] text-[#1A1F2A]"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -103,7 +91,7 @@ export default function Layout({ children }) {
 
         {/* Mobile Nav */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-gray-200 bg-white">
+          <div className="md:hidden border-t border-[#E0E0E0] bg-white">
             <div className="px-4 py-3 space-y-1">
               {navItems.map((item) => {
                 const Icon = item.icon;
@@ -115,8 +103,8 @@ export default function Layout({ children }) {
                     onClick={() => setMobileMenuOpen(false)}
                     className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
                       isActive 
-                        ? 'bg-[#C41E3A] text-white font-semibold' 
-                        : 'text-gray-700 hover:bg-gray-100'
+                        ? 'bg-[#203050] text-white' 
+                        : 'text-[#5B6472] hover:bg-[#F7F8FA]'
                     }`}
                   >
                     <Icon className="w-5 h-5" />
@@ -125,10 +113,10 @@ export default function Layout({ children }) {
                 );
               })}
               {user && (
-                <div className="pt-3 mt-3 border-t border-gray-200">
-                  <div className="px-4 py-2 text-sm text-gray-600">{user.full_name || user.email}</div>
+                <div className="pt-3 mt-3 border-t border-[#E0E0E0]">
+                  <div className="px-4 py-2 text-sm text-[#5B6472]">{user.full_name || user.email}</div>
                   <button
-                    className="flex items-center gap-3 px-4 py-3 w-full text-left text-gray-700 hover:bg-gray-100 rounded-lg"
+                    className="flex items-center gap-3 px-4 py-3 w-full text-left text-[#5B6472] hover:bg-[#F7F8FA] rounded-lg"
                     onClick={() => base44.auth.logout()}
                   >
                     <LogOut className="w-5 h-5" />

@@ -23,10 +23,8 @@ const SERVICE_TYPES = [
 const CONTRACT_WEEKS = [52, 104, 156];
 
 const STATUS_OPTIONS = [
-  { value: 'draft', label: 'Draft' },
-  { value: 'sent', label: 'Sent' },
-  { value: 'accepted', label: 'Accepted' },
-  { value: 'expired', label: 'Expired' }
+  { value: 'new', label: 'New' },
+  { value: 'renewal', label: 'Renewal' }
 ];
 
 export default function QuoteBuilder() {
@@ -40,7 +38,7 @@ export default function QuoteBuilder() {
     site_name: '',
     service_type: 'full',
     contract_weeks: 52,
-    status: 'draft'
+    status: 'new'
   });
   const [groups, setGroups] = useState([]);
   const [isSaving, setIsSaving] = useState(false);
@@ -105,7 +103,7 @@ export default function QuoteBuilder() {
         site_name: q.site_name || '',
         service_type: q.service_type || 'full',
         contract_weeks: q.contract_weeks || 52,
-        status: q.status || 'draft',
+        status: q.status || 'new',
         quote_ref: q.quote_ref
       });
     }
@@ -353,7 +351,7 @@ export default function QuoteBuilder() {
   if (quoteLoading || groupsLoading) {
     return (
       <div className="flex items-center justify-center py-20">
-        <Loader2 className="w-8 h-8 animate-spin text-[#C41E3A]" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#203050]" />
       </div>
     );
   }
@@ -366,35 +364,21 @@ export default function QuoteBuilder() {
           <Button
             variant="ghost"
             size="icon"
-            className="text-[#C41E3A] hover:bg-[#C41E3A]/5"
+            className="text-[#203050] hover:bg-[#F7F8FA]"
             onClick={() => navigate(createPageUrl('Quotes'))}
           >
             <ArrowLeft className="w-5 h-5" />
           </Button>
           <div>
             <div className="flex items-center gap-3">
-              <h1 className="text-2xl font-bold text-[#C41E3A]">{quote.quote_ref}</h1>
-              <Badge variant="outline" className="border-[#C41E3A] text-[#C41E3A]">
+              <h1 className="text-2xl font-bold text-[#203050]">{quote.quote_ref}</h1>
+              <Badge variant="outline" className="border-[#203050] text-[#203050] bg-[#203050]/5">
                 {STATUS_OPTIONS.find(s => s.value === quote.status)?.label}
               </Badge>
             </div>
-            <p className="text-[#2F2F2F]/70 text-sm">Edit quote details and pricing</p>
+            <p className="text-[#5B6472] text-sm">Edit quote details and pricing</p>
           </div>
         </div>
-        <Button
-          className={`${saveSuccess ? 'bg-green-600 hover:bg-green-700' : 'bg-[#C41E3A] hover:bg-[#a01730]'} text-white font-semibold transition-colors`}
-          onClick={handleSave}
-          disabled={isSaving}
-        >
-          {isSaving ? (
-            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-          ) : saveSuccess ? (
-            <CheckCircle className="w-4 h-4 mr-2" />
-          ) : (
-            <Save className="w-4 h-4 mr-2" />
-          )}
-          {saveSuccess ? 'Saved!' : 'Save Quote'}
-        </Button>
       </div>
 
       {/* Two Column Layout */}
@@ -402,37 +386,37 @@ export default function QuoteBuilder() {
         {/* Left Column - Form */}
         <div className="lg:col-span-2 space-y-6">
           {/* Quote Details Card */}
-          <Card className="border border-[#E6E6E6] overflow-hidden">
-            <div className="bg-[#C41E3A] px-5 py-4">
+          <Card className="border border-[#E0E0E0] overflow-hidden shadow-sm">
+            <div className="bg-[#203050] px-5 py-4">
               <h3 className="text-white font-bold text-lg">Quote Details</h3>
             </div>
-            <div className="p-5">
+            <div className="p-5 bg-white">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <Label className="text-[#2F2F2F] font-medium">Customer Name</Label>
+                  <Label className="text-[#1A1F2A] font-medium">Customer Name</Label>
                   <Input
                     value={quote.customer_name}
                     onChange={(e) => setQuote({ ...quote, customer_name: e.target.value })}
                     placeholder="Enter customer name"
-                    className="mt-1.5 border-[#E6E6E6] focus:border-[#C41E3A] focus:ring-[#C41E3A]"
+                    className="mt-1.5 border-[#E0E0E0] focus:border-[#203050] focus:ring-[#203050]"
                   />
                 </div>
                 <div>
-                  <Label className="text-[#2F2F2F] font-medium">Site Name</Label>
+                  <Label className="text-[#1A1F2A] font-medium">Site Name</Label>
                   <Input
                     value={quote.site_name}
                     onChange={(e) => setQuote({ ...quote, site_name: e.target.value })}
                     placeholder="Enter site name"
-                    className="mt-1.5 border-[#E6E6E6] focus:border-[#C41E3A] focus:ring-[#C41E3A]"
+                    className="mt-1.5 border-[#E0E0E0] focus:border-[#203050] focus:ring-[#203050]"
                   />
                 </div>
                 <div>
-                  <Label className="text-[#2F2F2F] font-medium">Service Type</Label>
+                  <Label className="text-[#1A1F2A] font-medium">Service Type</Label>
                   <Select 
                     value={quote.service_type} 
                     onValueChange={(v) => setQuote({ ...quote, service_type: v })}
                   >
-                    <SelectTrigger className="mt-1.5 border-[#E6E6E6]">
+                    <SelectTrigger className="mt-1.5 border-[#E0E0E0]">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -443,12 +427,12 @@ export default function QuoteBuilder() {
                   </Select>
                 </div>
                 <div>
-                  <Label className="text-[#2F2F2F] font-medium">Contract Weeks</Label>
+                  <Label className="text-[#1A1F2A] font-medium">Contract Weeks</Label>
                   <Select 
                     value={String(quote.contract_weeks)} 
                     onValueChange={(v) => setQuote({ ...quote, contract_weeks: parseInt(v) })}
                   >
-                    <SelectTrigger className="mt-1.5 border-[#E6E6E6]">
+                    <SelectTrigger className="mt-1.5 border-[#E0E0E0]">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -459,12 +443,12 @@ export default function QuoteBuilder() {
                   </Select>
                 </div>
                 <div>
-                  <Label className="text-[#2F2F2F] font-medium">Status</Label>
+                  <Label className="text-[#1A1F2A] font-medium">Status</Label>
                   <Select 
                     value={quote.status} 
                     onValueChange={(v) => setQuote({ ...quote, status: v })}
                   >
-                    <SelectTrigger className="mt-1.5 border-[#E6E6E6]">
+                    <SelectTrigger className="mt-1.5 border-[#E0E0E0]">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -481,10 +465,10 @@ export default function QuoteBuilder() {
           {/* Wearer Groups */}
           <div>
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-bold text-[#C41E3A]">Wearer Groups</h2>
+              <h2 className="text-xl font-bold text-[#203050]">Wearer Groups</h2>
               <Button
                 variant="outline"
-                className="border-[#C41E3A] text-[#C41E3A] hover:bg-[#C41E3A]/5"
+                className="border-[#203050] text-[#203050] hover:bg-[#F7F8FA]"
                 onClick={addGroup}
               >
                 <Plus className="w-4 h-4 mr-2" />
@@ -493,15 +477,15 @@ export default function QuoteBuilder() {
             </div>
 
             {groups.length === 0 ? (
-              <Card className="border border-dashed border-[#E6E6E6] p-8 text-center">
-                <p className="text-[#2F2F2F]/60 mb-4">No wearer groups added yet</p>
+              <Card className="border border-dashed border-[#E0E0E0] p-8 text-center bg-white shadow-sm">
+                <p className="text-[#5B6472] mb-4">No wearer groups added yet</p>
                 <Button
                   variant="outline"
-                  className="border-[#C41E3A] text-[#C41E3A] hover:bg-[#C41E3A]/5"
+                  className="border-[#203050] text-[#203050] hover:bg-[#F7F8FA]"
                   onClick={addGroup}
                 >
                   <Plus className="w-4 h-4 mr-2" />
-                  Add First Group
+                  Add Group
                 </Button>
               </Card>
             ) : (
@@ -546,6 +530,41 @@ export default function QuoteBuilder() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Save Button at Bottom */}
+      <div className="mt-8 flex justify-end lg:hidden">
+        <Button
+          className={`w-full sticky bottom-4 shadow-lg ${saveSuccess ? 'bg-green-600 hover:bg-green-700' : 'bg-[#203050] hover:bg-[#304060]'} text-white transition-colors`}
+          onClick={handleSave}
+          disabled={isSaving}
+        >
+          {isSaving ? (
+            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+          ) : saveSuccess ? (
+            <CheckCircle className="w-4 h-4 mr-2" />
+          ) : (
+            <Save className="w-4 h-4 mr-2" />
+          )}
+          {saveSuccess ? 'Saved!' : 'Save Quote'}
+        </Button>
+      </div>
+
+      <div className="mt-8 hidden lg:flex justify-end">
+        <Button
+          className={`${saveSuccess ? 'bg-green-600 hover:bg-green-700' : 'bg-[#203050] hover:bg-[#304060]'} text-white transition-colors px-8`}
+          onClick={handleSave}
+          disabled={isSaving}
+        >
+          {isSaving ? (
+            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+          ) : saveSuccess ? (
+            <CheckCircle className="w-4 h-4 mr-2" />
+          ) : (
+            <Save className="w-4 h-4 mr-2" />
+          )}
+          {saveSuccess ? 'Saved!' : 'Save Quote'}
+        </Button>
       </div>
     </div>
   );
