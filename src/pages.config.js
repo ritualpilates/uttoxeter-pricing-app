@@ -55,6 +55,7 @@ import QuoteDepartments from './pages/QuoteDepartments';
 import QuoteGarments from './pages/QuoteGarments';
 import QuoteHygiene from './pages/QuoteHygiene';
 import QuoteReview from './pages/QuoteReview';
+import Home from './pages/Home';
 import __Layout from './Layout.jsx';
 
 
@@ -67,6 +68,7 @@ export const PAGES = {
     "QuoteGarments": QuoteGarments,
     "QuoteHygiene": QuoteHygiene,
     "QuoteReview": QuoteReview,
+    "Home": Home,
 }
 
 export const pagesConfig = {
