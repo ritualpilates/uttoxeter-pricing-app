@@ -121,8 +121,8 @@ export default function AdminSettings() {
     return (
       <div className="flex flex-col items-center justify-center py-20">
         <AlertTriangle className="w-16 h-16 text-amber-500 mb-4" />
-        <h2 className="text-xl font-bold text-[#C41E3A] mb-2">Access Denied</h2>
-        <p className="text-[#2F2F2F]/70">You need admin privileges to access this page.</p>
+        <h2 className="text-xl font-bold text-[#203050] mb-2">Access Denied</h2>
+        <p className="text-[#5B6472]">You need admin privileges to access this page.</p>
       </div>
     );
   }
@@ -230,7 +230,7 @@ export default function AdminSettings() {
   if (garmentsLoading || settingsLoading) {
     return (
       <div className="flex items-center justify-center py-20">
-        <Loader2 className="w-8 h-8 animate-spin text-[#C41E3A]" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#203050]" />
       </div>
     );
   }
@@ -239,22 +239,22 @@ export default function AdminSettings() {
     <div>
       {/* Page Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-[#C41E3A] mb-2">Admin Settings</h1>
-        <p className="text-[#2F2F2F]/70">Manage garments and pricing configuration</p>
+        <h1 className="text-3xl font-bold text-[#203050] mb-2">Admin Settings</h1>
+        <p className="text-[#5B6472]">Manage garments and pricing configuration</p>
       </div>
 
       <Tabs value={activeTab} onValueChange={setActiveTab}>
-        <TabsList className="bg-[#C41E3A]/5 mb-6">
+        <TabsList className="bg-[#203050]/5 mb-6">
           <TabsTrigger 
             value="garments" 
-            className="data-[state=active]:bg-[#C41E3A] data-[state=active]:text-white"
+            className="data-[state=active]:bg-[#203050] data-[state=active]:text-white"
           >
             <Package className="w-4 h-4 mr-2" />
             Garments
           </TabsTrigger>
           <TabsTrigger 
             value="settings"
-            className="data-[state=active]:bg-[#C41E3A] data-[state=active]:text-white"
+            className="data-[state=active]:bg-[#203050] data-[state=active]:text-white"
           >
             <Settings className="w-4 h-4 mr-2" />
             Pricing Settings
@@ -264,28 +264,28 @@ export default function AdminSettings() {
         {/* Garments Tab */}
         <TabsContent value="garments" className="space-y-6">
           {/* Add New Garment */}
-          <Card className="border border-[#E6E6E6] overflow-hidden">
-            <div className="bg-[#C41E3A] px-5 py-4">
+          <Card className="border border-[#E0E0E0] overflow-hidden shadow-sm">
+            <div className="bg-[#203050] px-5 py-4">
               <h3 className="text-white font-bold text-lg">Add New Garment</h3>
             </div>
-            <div className="p-5">
+            <div className="p-5 bg-white">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
                 <div>
-                  <Label className="text-[#2F2F2F] font-medium">Name</Label>
+                  <Label className="text-[#1A1F2A] font-medium">Name</Label>
                   <Input
                     value={newGarment.name}
                     onChange={(e) => setNewGarment({ ...newGarment, name: e.target.value })}
                     placeholder="Garment name"
-                    className="mt-1.5 border-[#E6E6E6]"
+                    className="mt-1.5 border-[#E0E0E0]"
                   />
                 </div>
                 <div>
-                  <Label className="text-[#2F2F2F] font-medium">Category</Label>
+                  <Label className="text-[#1A1F2A] font-medium">Category</Label>
                   <Select 
                     value={newGarment.category} 
                     onValueChange={(v) => setNewGarment({ ...newGarment, category: v })}
                   >
-                    <SelectTrigger className="mt-1.5 border-[#E6E6E6]">
+                    <SelectTrigger className="mt-1.5 border-[#E0E0E0]">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -296,18 +296,18 @@ export default function AdminSettings() {
                   </Select>
                 </div>
                 <div>
-                  <Label className="text-[#2F2F2F] font-medium">Default Cost (£)</Label>
+                  <Label className="text-[#1A1F2A] font-medium">Default Cost (£)</Label>
                   <Input
                     type="number"
                     step="0.01"
                     value={newGarment.default_cost_price}
                     onChange={(e) => setNewGarment({ ...newGarment, default_cost_price: parseFloat(e.target.value) || 0 })}
-                    className="mt-1.5 border-[#E6E6E6]"
+                    className="mt-1.5 border-[#E0E0E0]"
                   />
                 </div>
                 <div className="flex items-end">
                   <Button
-                    className="bg-[#C41E3A] hover:bg-[#a01730] text-white font-semibold w-full"
+                    className="bg-[#203050] hover:bg-[#304060] text-white w-full"
                     onClick={handleAddGarment}
                     disabled={!newGarment.name || isSaving}
                   >
@@ -318,33 +318,33 @@ export default function AdminSettings() {
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div>
-                  <Label className="text-[#2F2F2F] font-medium text-sm">Wash Price Full (£)</Label>
+                  <Label className="text-[#1A1F2A] font-medium text-sm">Wash Price Full (£)</Label>
                   <Input
                     type="number"
                     step="0.01"
                     value={newGarment.wash_price_full}
                     onChange={(e) => setNewGarment({ ...newGarment, wash_price_full: parseFloat(e.target.value) || 0 })}
-                    className="mt-1 border-[#E6E6E6]"
+                    className="mt-1 border-[#E0E0E0]"
                   />
                 </div>
                 <div>
-                  <Label className="text-[#2F2F2F] font-medium text-sm">Wash Price Split (£)</Label>
+                  <Label className="text-[#1A1F2A] font-medium text-sm">Wash Price Split (£)</Label>
                   <Input
                     type="number"
                     step="0.01"
                     value={newGarment.wash_price_split}
                     onChange={(e) => setNewGarment({ ...newGarment, wash_price_split: parseFloat(e.target.value) || 0 })}
-                    className="mt-1 border-[#E6E6E6]"
+                    className="mt-1 border-[#E0E0E0]"
                   />
                 </div>
                 <div>
-                  <Label className="text-[#2F2F2F] font-medium text-sm">Wash Price Wash Only (£)</Label>
+                  <Label className="text-[#1A1F2A] font-medium text-sm">Wash Price Wash Only (£)</Label>
                   <Input
                     type="number"
                     step="0.01"
                     value={newGarment.wash_price_wash_only}
                     onChange={(e) => setNewGarment({ ...newGarment, wash_price_wash_only: parseFloat(e.target.value) || 0 })}
-                    className="mt-1 border-[#E6E6E6]"
+                    className="mt-1 border-[#E0E0E0]"
                   />
                 </div>
               </div>
@@ -352,8 +352,8 @@ export default function AdminSettings() {
           </Card>
 
           {/* Garments List */}
-          <Card className="border border-[#E6E6E6] overflow-hidden">
-            <div className="bg-[#C41E3A] px-5 py-4">
+          <Card className="border border-[#E0E0E0] overflow-hidden shadow-sm">
+            <div className="bg-[#203050] px-5 py-4">
               <h3 className="text-white font-bold text-lg">Garment List</h3>
             </div>
             <div className="overflow-x-auto">
@@ -378,7 +378,7 @@ export default function AdminSettings() {
                           value={garment.name}
                           onChange={(e) => updateGarmentField(garment.id, 'name', e.target.value)}
                           onBlur={() => handleUpdateGarment(garment)}
-                          className="border-[#E6E6E6] h-8"
+                          className="border-[#E0E0E0] h-8"
                         />
                       </TableCell>
                       <TableCell>
@@ -389,7 +389,7 @@ export default function AdminSettings() {
                             handleUpdateGarment({ ...garment, category: v });
                           }}
                         >
-                          <SelectTrigger className="border-[#E6E6E6] h-8 w-28">
+                          <SelectTrigger className="border-[#E0E0E0] h-8 w-28">
                             <SelectValue />
                           </SelectTrigger>
                           <SelectContent>
@@ -406,7 +406,7 @@ export default function AdminSettings() {
                           value={garment.default_cost_price || ''}
                           onChange={(e) => updateGarmentField(garment.id, 'default_cost_price', parseFloat(e.target.value) || 0)}
                           onBlur={() => handleUpdateGarment(garment)}
-                          className="border-[#E6E6E6] h-8 w-20"
+                          className="border-[#E0E0E0] h-8 w-20"
                         />
                       </TableCell>
                       <TableCell>
@@ -416,7 +416,7 @@ export default function AdminSettings() {
                           value={garment.wash_price_full || ''}
                           onChange={(e) => updateGarmentField(garment.id, 'wash_price_full', parseFloat(e.target.value) || 0)}
                           onBlur={() => handleUpdateGarment(garment)}
-                          className="border-[#E6E6E6] h-8 w-16"
+                          className="border-[#E0E0E0] h-8 w-16"
                         />
                       </TableCell>
                       <TableCell>
@@ -426,7 +426,7 @@ export default function AdminSettings() {
                           value={garment.wash_price_split || ''}
                           onChange={(e) => updateGarmentField(garment.id, 'wash_price_split', parseFloat(e.target.value) || 0)}
                           onBlur={() => handleUpdateGarment(garment)}
-                          className="border-[#E6E6E6] h-8 w-16"
+                          className="border-[#E0E0E0] h-8 w-16"
                         />
                       </TableCell>
                       <TableCell>
@@ -436,7 +436,7 @@ export default function AdminSettings() {
                           value={garment.wash_price_wash_only || ''}
                           onChange={(e) => updateGarmentField(garment.id, 'wash_price_wash_only', parseFloat(e.target.value) || 0)}
                           onBlur={() => handleUpdateGarment(garment)}
-                          className="border-[#E6E6E6] h-8 w-16"
+                          className="border-[#E0E0E0] h-8 w-16"
                         />
                       </TableCell>
                       <TableCell>
@@ -468,15 +468,15 @@ export default function AdminSettings() {
 
         {/* Settings Tab */}
         <TabsContent value="settings" className="space-y-6">
-          <Card className="border border-[#E6E6E6] overflow-hidden">
-            <div className="bg-[#C41E3A] px-5 py-4">
+          <Card className="border border-[#E0E0E0] overflow-hidden shadow-sm">
+            <div className="bg-[#203050] px-5 py-4">
               <h3 className="text-white font-bold text-lg">Pricing Configuration</h3>
             </div>
-            <div className="p-5 space-y-6">
+            <div className="p-5 space-y-6 bg-white">
               {/* Rental Multiplier */}
               <div>
-                <Label className="text-[#2F2F2F] font-medium">Rental Multiplier</Label>
-                <p className="text-sm text-[#2F2F2F]/60 mb-2">
+                <Label className="text-[#1A1F2A] font-medium">Rental Multiplier</Label>
+                <p className="text-sm text-[#5B6472] mb-2">
                   Used in rental recovery calculation: cost × multiplier × set_size × changes / contract_weeks
                 </p>
                 <Input
@@ -484,20 +484,20 @@ export default function AdminSettings() {
                   step="0.1"
                   value={rentalMultiplier}
                   onChange={(e) => setRentalMultiplier(parseFloat(e.target.value) || 2)}
-                  className="w-32 border-[#E6E6E6]"
+                  className="w-32 border-[#E0E0E0]"
                 />
               </div>
 
               {/* Changes Mapping */}
               <div>
-                <Label className="text-[#2F2F2F] font-medium">Set Size to Changes per Week Mapping</Label>
-                <p className="text-sm text-[#2F2F2F]/60 mb-3">
+                <Label className="text-[#1A1F2A] font-medium">Set Size to Changes per Week Mapping</Label>
+                <p className="text-sm text-[#5B6472] mb-3">
                   Define how many changes per week for each set size
                 </p>
                 <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
                   {[3, 5, 7, 9, 11].map(size => (
-                    <div key={size} className="bg-gray-50 rounded-lg p-3">
-                      <Label className="text-sm text-[#2F2F2F]/70">Set of {size}</Label>
+                    <div key={size} className="bg-[#F7F8FA] rounded-lg p-3">
+                      <Label className="text-sm text-[#5B6472]">Set of {size}</Label>
                       <Input
                         type="number"
                         min="1"
@@ -506,9 +506,9 @@ export default function AdminSettings() {
                           ...changesMapping,
                           [size]: parseInt(e.target.value) || 1
                         })}
-                        className="mt-1 border-[#E6E6E6]"
+                        className="mt-1 border-[#E0E0E0]"
                       />
-                      <span className="text-xs text-[#2F2F2F]/50">changes/week</span>
+                      <span className="text-xs text-[#5B6472]">changes/week</span>
                     </div>
                   ))}
                 </div>
@@ -517,7 +517,7 @@ export default function AdminSettings() {
               {/* Save Button */}
               <div className="pt-4">
                 <Button
-                  className={`${saveSuccess ? 'bg-green-600 hover:bg-green-700' : 'bg-[#C41E3A] hover:bg-[#a01730]'} text-white font-semibold`}
+                  className={`${saveSuccess ? 'bg-green-600 hover:bg-green-700' : 'bg-[#203050] hover:bg-[#304060]'} text-white`}
                   onClick={handleSaveSettings}
                   disabled={isSaving}
                 >
@@ -540,16 +540,16 @@ export default function AdminSettings() {
       <AlertDialog open={!!deleteGarment} onOpenChange={() => setDeleteGarment(null)}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle className="text-[#C41E3A]">Delete Garment</AlertDialogTitle>
+            <AlertDialogTitle className="text-[#203050]">Delete Garment</AlertDialogTitle>
             <AlertDialogDescription>
               Are you sure you want to delete <strong>{deleteGarment?.name}</strong>? 
               This action cannot be undone.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel className="border-[#E6E6E6]">Cancel</AlertDialogCancel>
+            <AlertDialogCancel className="border-[#E0E0E0]">Cancel</AlertDialogCancel>
             <AlertDialogAction
-              className="bg-red-600 hover:bg-red-700"
+              className="bg-red-600 hover:bg-red-700 text-white"
               onClick={handleDeleteGarment}
             >
               Delete

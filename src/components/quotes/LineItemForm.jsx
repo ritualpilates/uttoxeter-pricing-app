@@ -22,13 +22,13 @@ export default function LineItemForm({ line, garments, serviceType, onChange, on
   };
 
   return (
-    <div className="bg-white border border-[#E6E6E6] rounded-lg p-4">
+    <div className="bg-white border border-[#E0E0E0] rounded-lg p-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
         {/* Category */}
         <div>
-          <label className="text-xs font-medium text-[#2F2F2F]/70 mb-1 block">Category</label>
+          <label className="text-xs font-medium text-[#5B6472] mb-1 block">Category</label>
           <Select value={line.category || ''} onValueChange={(v) => onChange('category', v)}>
-            <SelectTrigger className="border-[#E6E6E6]">
+            <SelectTrigger className="border-[#E0E0E0]">
               <SelectValue placeholder="Select..." />
             </SelectTrigger>
             <SelectContent>
@@ -41,11 +41,11 @@ export default function LineItemForm({ line, garments, serviceType, onChange, on
 
         {/* Description - with garment quick select */}
         <div className="lg:col-span-2">
-          <label className="text-xs font-medium text-[#2F2F2F]/70 mb-1 block">Description</label>
+          <label className="text-xs font-medium text-[#5B6472] mb-1 block">Description</label>
           <div className="flex gap-2">
             {filteredGarments.length > 0 && (
               <Select onValueChange={handleGarmentSelect}>
-                <SelectTrigger className="w-[120px] border-[#E6E6E6]">
+                <SelectTrigger className="w-[120px] border-[#E0E0E0]">
                   <SelectValue placeholder="Quick..." />
                 </SelectTrigger>
                 <SelectContent>
@@ -59,14 +59,14 @@ export default function LineItemForm({ line, garments, serviceType, onChange, on
               value={line.description || ''}
               onChange={(e) => onChange('description', e.target.value)}
               placeholder="Item description"
-              className="flex-1 border-[#E6E6E6]"
+              className="flex-1 border-[#E0E0E0]"
             />
           </div>
         </div>
 
         {/* Cost Price */}
         <div>
-          <label className="text-xs font-medium text-[#2F2F2F]/70 mb-1 block">Cost Price (£)</label>
+          <label className="text-xs font-medium text-[#5B6472] mb-1 block">Cost Price (£)</label>
           <Input
             type="number"
             step="0.01"
@@ -74,21 +74,21 @@ export default function LineItemForm({ line, garments, serviceType, onChange, on
             value={line.cost_price || ''}
             onChange={(e) => onChange('cost_price', parseFloat(e.target.value) || 0)}
             placeholder="0.00"
-            className="border-[#E6E6E6]"
+            className="border-[#E0E0E0]"
           />
         </div>
 
         {/* Quantity */}
         <div className="flex items-end gap-2">
           <div className="flex-1">
-            <label className="text-xs font-medium text-[#2F2F2F]/70 mb-1 block">Qty in Set</label>
+            <label className="text-xs font-medium text-[#5B6472] mb-1 block">Qty in Set</label>
             <Input
               type="number"
               min="0"
               value={line.quantity_in_set || ''}
               onChange={(e) => onChange('quantity_in_set', parseInt(e.target.value) || 0)}
               placeholder="0"
-              className="border-[#E6E6E6]"
+              className="border-[#E0E0E0]"
             />
           </div>
           <Button
